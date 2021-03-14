@@ -1,0 +1,56 @@
+- Login y SignUp
+	- nombres, apellidos, correo, teléfono, sexo, fecha de nacimiento, usuario y password
+	- Empleados, Clientes y Admin
+		-Empleados ID de empresa
+
+-Cliente:Solo podrá ver 4 menús:
+a) Ver Cartelera: 
+	- ID que lo identifica, Nombre, Duración, Tipo de película (Acción/Suspenso/Comedia/Animadas)
+	- Imgen de pelcula
+b) Ver Tienda de Golosinas:
+	- ID que lo identifica, Nombre, Tipo de Golosina, Precio, Imagen de Golosina
+c) Comprar Boletos:
+	-Pedir ID y mostrar info de la peli.
+
+	-Salas de exhibicion: Estandar, Premium, VIP
+	-Estándar: Tiene 8 filas y marcadas de la A – H; su precio es de $3.55
+	-Premium: Está sala es más pequeña por su comodidad y tiene 5 filas de la A– H; su precio es de $4.75.
+	-VIP: Tiene solamente 5 filas, marcadas de la A – F; su precio es de $6.50.
+	-Validar si hay suficientes espacios.
+	
+	-Ticket: nombre de cine, nombre del empleado que loatendió 
+		(esto será un alzar entre los empleados que estén registrados),
+		 id del empleado; la fecha y hora, nombre de la película, sala, cantidad, precio sub-total,
+		tax (impuesto: toda película lleva el impuesto del 35.33%) y el precio total.
+d) Comprar Golosinas:
+	-Pedir ID y mostrar info de la golosina.
+	-Cantidad
+	-Ticket: nombre del cine, nombre del empleado (al azar), id del empleado, fecha y hora, 
+		nombre del producto, cantidad, precio-subtotal, impuesto (es del 4.53%) y el precio total a pagar.
+
+--> Para ambos casos de compra, se deberá pagar en efectivo y el sistema deberá responder de la siguiente manera:
+	A) Si el pago es igual, mostrará un mensaje: “Cobro exacto, gracias por comprar en KODIMAX”.
+	B) Si el pago es menor, deberá dar un mensaje “Pago insuficiente” y volver a solicitar
+		el pago hasta que sea suficiente.
+	C) SI el pago es mayor, deberá mostrar un mensaje “Su cambio es XX.XX, gracias por
+		comprar en KODIMAX”.		
+
+-Empleado: podrá ver 2 menús principales:
+a) Modificar Cartelera:
+	1. Puede agregar o eliminar películas.
+	2. Modificar la sala de exhibición.
+b) Modificar Tienda de golosinas:
+	1. Puede agregar o eliminar golosinas.
+	2. Modificar tipo de golosina y/o precio.
+
+
+-Admin SU:: admin-max y su password: @dminM@x.
+1. Crear o eliminar empleados: Si es crear, ingresa todos los datos.
+2. Eliminar usuarios.
+3. Modificar Cartelera
+4. Modificar Tienda de Golosinas.(3 y 4 son idénticos a los de un empleado)
+5. Reportes: Esto lo que hace es generar 3 reportes:
+	a)Botón para guardar JSON de todos los usuarios que existen
+		(empleados y clientes) con todos los datos (incluso el tipo de usuario e ID)
+	b) Botón para guardar JSON de todos los datos de las películas.
+	c) Botón para guardar JSON de todos los datos de golosinas.
