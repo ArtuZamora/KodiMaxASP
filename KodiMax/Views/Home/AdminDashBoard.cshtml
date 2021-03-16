@@ -12,25 +12,43 @@
         </div>
         <br />
         <div class="pdiv shadow p-3 w-100 bg-warning rounded">
-            Prueba 1
+            Ingresar Empleados
         </div>
-        <div class="bdiv shadow-sm p-3 w-100 mb-2 rounded">
-            Prueba 1
+        <div class="bdiv shadow-sm p-3 w-100 mb-2 rounded" style="align-content:center">
+            @{Html.RenderAction("Create", "User");}
         </div>
         <br />
         <div class="pdiv shadow p-3 w-100 bg-warning rounded">
-            Prueba
+            Modificar Cartelera
         </div>
         <div class="bdiv shadow-sm p-3 w-100 mb-2 rounded">
-            Prueba
+            BODY
         </div>
+        <br />
+        <div class="pdiv shadow p-3 w-100 bg-warning rounded">
+            Modificar Golosinas
+        </div>
+        <div class="bdiv shadow-sm p-3 w-100 mb-2 rounded">
+            BODY
+        </div>
+        <br />
+        <div class="pdiv shadow p-3 w-100 bg-warning rounded">
+            Exportar Reportes
+        </div>
+        <div class="bdiv shadow-sm p-3 w-100 mb-2 rounded">
+            BODY
+        </div>
+        <br />
     </fieldset>
+    @Html.ActionLink("Cerrar Sesión", "UnSession", "Home", new { @class= "close-sesion shadow btn btn-danger" , @style = "font-size:large;" })
 </body>
 
-<script>
-    $(document).ready(function () {
-        $(".pdiv").click(function () {
-            $(this).next().slideToggle("fast");
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $(".pdiv").click(function () {
+                $(this).next().slideToggle("fast");
+            });
         });
-    });
-</script>
+    </script>
+}

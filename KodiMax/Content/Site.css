@@ -40,3 +40,19 @@ textarea {
 .lgd {
     font-size: large;
 }
+
+.close-sesion {
+    float: right;
+    margin-right: 70px;
+    width: 150px;
+    height: 35px;
+    color: aqua;
+    font-family: 'Microsoft YaHei UI';
+}
+
+#CreateUser {
+    margin-right: 70px;
+    width: 150px;
+    height: 50px;
+    font-size: large;
+}

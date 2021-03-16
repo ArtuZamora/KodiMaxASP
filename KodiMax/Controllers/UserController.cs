@@ -41,17 +41,22 @@ namespace KodiMax.Controllers
 
         // POST: User/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(User user)
         {
             try
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                using (KodiMaxEntities db = new KodiMaxEntities())
+                {
+                    user.Type = "employee";
+                    db.Users.Add(user);
+                    db.SaveChanges();
+                    return RedirectToAction("Login","Home");
+                }
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                ModelState.AddModelError("", "Error al registrar el empleado - " + ex);
+                return RedirectToAction("Login", "Home");
             }
         }
 
@@ -80,22 +85,12 @@ namespace KodiMax.Controllers
         // GET: User/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
-        }
-
-        // POST: User/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
+            using (var db = new KodiMaxEntities())
             {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
+                User user = db.Users.Find(id);
+                db.Users.Remove(user);
+                db.SaveChanges();
+                return RedirectToAction("Login", "Home");
             }
         }
     }

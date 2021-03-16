@@ -8,7 +8,8 @@ namespace KodiMax.Controllers
     {
         public ActionResult Login()
         {
-            if(Session["ID"] == null) return View();
+            if (UserSession.user != null) ReSession();
+            if (UserSession.user == null) return View();
             else
             {
                 switch (Session["Type"].ToString().Trim())
@@ -35,6 +36,7 @@ namespace KodiMax.Controllers
                     var obj = db.Users.Where(a => a.Username.Equals(objUser.Username) && a.Password.Equals(objUser.Password)).FirstOrDefault();
                     if (obj != null)
                     {
+                        UserSession.user = obj;
                         Session["ID"] = obj.ID.ToString();
                         Session["Username"] = obj.Username.ToString();
                         Session["Type"] = obj.Type.ToString();
@@ -72,7 +74,7 @@ namespace KodiMax.Controllers
         }
         public ActionResult AdminDashBoard()
         {
-            if (Session["ID"] != null)
+            if (UserSession.user != null)
             {
                 return View();
             }
@@ -91,6 +93,23 @@ namespace KodiMax.Controllers
             {
                 return RedirectToAction("Login");
             }
+        }
+        public void ReSession()
+        {
+            Session["ID"] = UserSession.user.ID.ToString();
+            Session["Username"] = UserSession.user.Username.ToString();
+            Session["Type"] = UserSession.user.Type.ToString();
+            Session["Names"] = UserSession.user.Names.ToString();
+            Session["LastNames"] = UserSession.user.LastNames.ToString();
+            Session["Birthdate"] = UserSession.user.Birthdate.ToString();
+            Session["Cellphone"] = UserSession.user.Cellphone.ToString();
+            Session["Email"] = UserSession.user.Email.ToString();
+            Session["Genre"] = UserSession.user.Genre.ToString();
+        }
+        public ActionResult UnSession()
+        {
+            UserSession.user = null;
+            return RedirectToAction("Login");
         }
     }
 }
