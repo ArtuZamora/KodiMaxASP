@@ -8,6 +8,19 @@ namespace KodiMax.Controllers
     {
         public ActionResult Login()
         {
+            if(Session["ID"] == null) return View();
+            else
+            {
+                switch (Session["Type"].ToString().Trim())
+                {
+                    case "admin":
+                        return RedirectToAction("AdminDashBoard");
+                    case "employee":
+                        return RedirectToAction("EmployeeDashBoard");
+                    case "client":
+                        return RedirectToAction("ClientDashBoard");
+                }
+            }
             return View();
         }
 
@@ -24,14 +37,51 @@ namespace KodiMax.Controllers
                     {
                         Session["ID"] = obj.ID.ToString();
                         Session["Username"] = obj.Username.ToString();
-                        return RedirectToAction("UserDashBoard");
+                        Session["Type"] = obj.Type.ToString();
+                        Session["Names"] = obj.Names.ToString();
+                        Session["LastNames"] = obj.LastNames.ToString();
+                        Session["Birthdate"] = obj.Birthdate.ToString();
+                        Session["Cellphone"] = obj.Cellphone.ToString();
+                        Session["Email"] = obj.Email.ToString();
+                        Session["Genre"] = obj.Genre.ToString();
+                        switch(obj.Type.ToString().Trim())
+                        {
+                            case "admin":
+                                return RedirectToAction("AdminDashBoard");
+                            case "employee":
+                                return RedirectToAction("EmployeeDashBoard");
+                            case "client":
+                                return RedirectToAction("ClientDashBoard");
+                        }
                     }
                 }
             }
             return View(objUser);
         }
 
-        public ActionResult UserDashBoard()
+        public ActionResult ClientDashBoard()
+        {
+            if (Session["ID"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+        }
+        public ActionResult AdminDashBoard()
+        {
+            if (Session["ID"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+        }
+        public ActionResult EmployeeDashBoard()
         {
             if (Session["ID"] != null)
             {

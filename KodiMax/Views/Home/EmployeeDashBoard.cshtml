@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "EmployeeDashBoard";
+}
+
+<fieldset>
+    <legend> Employee DashBoard </legend>
+
+    @if (Session["Username"] != null)
+    {
+        <text>Welcome @Session["Type"].ToString() </text>
+    }
+</fieldset>
+

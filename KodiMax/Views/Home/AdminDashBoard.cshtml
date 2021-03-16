@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "AdminDashBoard";
+}
+<body>
+    <fieldset class="dash">
+        <legend class="lgd"> Admin DashBoard - @Session["Names"] @Session["Lastnames"] </legend>
+        <div class="pdiv shadow p-3 w-100 bg-warning rounded">
+            Listado de Usuarios
+        </div>
+        <div class="bdiv shadow-sm p-3 w-100 mb-2 rounded">
+            @{Html.RenderAction("Details", "User");}
+        </div>
+        <br />
+        <div class="pdiv shadow p-3 w-100 bg-warning rounded">
+            Prueba 1
+        </div>
+        <div class="bdiv shadow-sm p-3 w-100 mb-2 rounded">
+            Prueba 1
+        </div>
+        <br />
+        <div class="pdiv shadow p-3 w-100 bg-warning rounded">
+            Prueba
+        </div>
+        <div class="bdiv shadow-sm p-3 w-100 mb-2 rounded">
+            Prueba
+        </div>
+    </fieldset>
+</body>
+
+<script>
+    $(document).ready(function () {
+        $(".pdiv").click(function () {
+            $(this).next().slideToggle("fast");
+        });
+    });
+</script>
