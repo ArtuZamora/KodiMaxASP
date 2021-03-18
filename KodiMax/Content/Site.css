@@ -44,6 +44,7 @@ textarea {
 .close-sesion {
     float: right;
     margin-right: 70px;
+    margin-bottom: 70px;
     width: 150px;
     height: 35px;
     color: aqua;

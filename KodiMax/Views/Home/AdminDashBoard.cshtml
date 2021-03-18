@@ -19,17 +19,45 @@
         </div>
         <br />
         <div class="pdiv shadow p-3 w-100 bg-warning rounded">
-            Modificar Cartelera
+            Ver Cartelera
         </div>
         <div class="bdiv shadow-sm p-3 w-100 mb-2 rounded">
-            BODY
+            @{Html.RenderAction("Details", "Movie");}
         </div>
         <br />
         <div class="pdiv shadow p-3 w-100 bg-warning rounded">
-            Modificar Golosinas
+            Ingresar Pelicula
         </div>
         <div class="bdiv shadow-sm p-3 w-100 mb-2 rounded">
-            BODY
+            @{Html.RenderAction("Create", "Movie");}
+        </div>
+        <br />
+        <div class="pdiv shadow p-3 w-100 bg-warning rounded">
+            Modificar Pelicula
+        </div>
+        <div class="bdiv shadow-sm p-3 w-100 mb-2 rounded">
+            @{Html.RenderAction("Edit", "Movie");}
+        </div>
+        <br />
+        <div class="pdiv shadow p-3 w-100 bg-warning rounded">
+            Ver Golosinas
+        </div>
+        <div class="bdiv shadow-sm p-3 w-100 mb-2 rounded">
+            @{Html.RenderAction("Details", "Candy");}
+        </div>
+        <br />
+        <div class="pdiv shadow p-3 w-100 bg-warning rounded">
+            Ingresar Golosina
+        </div>
+        <div class="bdiv shadow-sm p-3 w-100 mb-2 rounded">
+            @{Html.RenderAction("Create", "Candy");}
+        </div>
+        <br />
+        <div class="pdiv shadow p-3 w-100 bg-warning rounded">
+            Modificar Golosina
+        </div>
+        <div class="bdiv shadow-sm p-3 w-100 mb-2 rounded">
+            @{Html.RenderAction("Edit", "Candy");}
         </div>
         <br />
         <div class="pdiv shadow p-3 w-100 bg-warning rounded">
@@ -40,15 +68,8 @@
         </div>
         <br />
     </fieldset>
-    @Html.ActionLink("Cerrar Sesión", "UnSession", "Home", new { @class= "close-sesion shadow btn btn-danger" , @style = "font-size:large;" })
+    @Html.ActionLink("Cerrar Sesión", "UnSession", "Home", new { @class = "close-sesion shadow btn btn-danger", @style = "font-size:large;" })
 </body>
 
-@section scripts{
-    <script>
-        $(document).ready(function () {
-            $(".pdiv").click(function () {
-                $(this).next().slideToggle("fast");
-            });
-        });
-    </script>
-}
+
+@Scripts.Render("~/Scripts/AdminEmployeeS.js")

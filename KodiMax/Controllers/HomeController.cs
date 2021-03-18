@@ -63,36 +63,30 @@ namespace KodiMax.Controllers
 
         public ActionResult ClientDashBoard()
         {
-            if (Session["ID"] != null)
+            if (UserSession.user != null)
             {
-                return View();
+                if (Session["Type"].ToString().Trim() == "client") return View();
+                else return RedirectToAction("Login");
             }
-            else
-            {
-                return RedirectToAction("Login");
-            }
+            else return RedirectToAction("Login");
         }
         public ActionResult AdminDashBoard()
         {
             if (UserSession.user != null)
             {
-                return View();
+                if(Session["Type"].ToString().Trim() == "admin") return View();
+                else return RedirectToAction("Login");
             }
-            else
-            {
-                return RedirectToAction("Login");
-            }
+            else return RedirectToAction("Login");
         }
         public ActionResult EmployeeDashBoard()
         {
-            if (Session["ID"] != null)
+            if (UserSession.user != null)
             {
-                return View();
+                if (Session["Type"].ToString().Trim() == "employee") return View();
+                else return RedirectToAction("Login");
             }
-            else
-            {
-                return RedirectToAction("Login");
-            }
+            else return RedirectToAction("Login");
         }
         public void ReSession()
         {
