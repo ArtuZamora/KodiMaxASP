@@ -1,9 +1,9 @@
 ﻿@model KodiMax.Models.User
 
-@using (Html.BeginForm("Create", "User", FormMethod.Post)) 
+@using (Html.BeginForm("Create", "User", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal" style="margin-left:50px">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })

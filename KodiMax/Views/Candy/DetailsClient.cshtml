@@ -1,0 +1,23 @@
+﻿@model IEnumerable<KodiMax.Models.Candy>
+
+<table class="table" style="height:250px;">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="background-image: url('@item.Image'); width:200px; background-size: cover;">
+            </td>
+            <td style="padding-top:30px; padding-left:50px;">
+                <h1 class="movie-title">
+                    @item.Name
+                </h1><br /><br />
+                <p class="movie-detail">
+                    <b>Precio:</b> $@Html.DisplayFor(modelItem => item.Price)<br /><br />
+                    <b>Categoria:</b> @Html.DisplayFor(modelItem => item.Type)
+                </p>
+                <button id="@item.ID" type="button" class="btn btn-success candy" style="font-size:large">
+                    Comprar Golosina
+                </button>
+            </td>
+        </tr>
+    }
+</table>

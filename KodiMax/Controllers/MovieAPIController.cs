@@ -10,9 +10,19 @@ namespace KodiMax.Controllers
 {
     public class MovieAPIController : ApiController
     {
-        public IEnumerable<string> Get()
+        public IHttpActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                using (var db = new KodiMaxEntities())
+                {
+                    return Ok(db.Movies.ToList());
+                }
+            }
+            catch (Exception)
+            {
+                return NotFound();
+            }
         }
         public IHttpActionResult Get(int id)
         {

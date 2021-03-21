@@ -347,19 +347,21 @@ iframe {
   transition: all 0.4s;
 }
 
+
 .login100-form-btn:hover {
   background: #333333;
 }
 
-
-
-/*------------------------------------------------------------------
+#CreateUserG {
+	background: #4158d0;
+}
+#CreateUserG:hover {
+	background: #243c6d;
+}
+	/*------------------------------------------------------------------
 [ Responsive ]*/
-
-
-
-@media (max-width: 992px) {
-  .wrap-login100 {
+	@media (max-width: 992px) {
+		.wrap-login100 {
     padding: 177px 90px 33px 85px;
   }
 

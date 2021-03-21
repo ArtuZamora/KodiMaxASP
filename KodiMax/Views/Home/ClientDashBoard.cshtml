@@ -2,11 +2,71 @@
     ViewBag.Title = "ClientDashBoard";
 }
 
-<fieldset>
-    <legend> Client DashBoard </legend>
+<link rel="stylesheet" type="text/css" href="~/vendor/animate/animate.css">
+<link rel="stylesheet" type="text/css" href="~/vendor/css-hamburgers/hamburgers.min.css">
+<link rel="stylesheet" type="text/css" href="~/vendor/select2/select2.min.css">
+<link rel="stylesheet" type="text/css" href="~/Content/login-util.css">
+<link rel="stylesheet" type="text/css" href="~/Content/login.css">
 
-    @if (Session["Username"] != null)
-    {
-        <text>Welcome @Session["Type"].ToString() </text>
-    }
-</fieldset>  
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/97050d6f4c.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="~/Content/style.css">
+
+<body>
+    <div class="wrapper d-flex align-items-stretch">
+        <nav id="sidebar">
+            <div class="custom-menu">
+                <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                </button>
+            </div>
+            <div class="img bg-wrap text-center py-4" style="background-image: url(../../images/bg_2.jpg);">
+                <div class="user-logo">
+                    <div class="img" style="background-image: url(../../images/img-01.png);"></div>
+                    <h3>@Session["Names"] @Session["Lastnames"]</h3>
+                </div>
+            </div>
+            <ul class="list-unstyled components mb-5">
+                <li class="active handCursor">
+                    <a style="text-decoration:none" id="activeMovies"><span class="fa fa-film mr-3"></span> Cartelera</a>
+                </li>
+                <li class="handCursor">
+                    <a style="text-decoration:none" id="activeCandies"><span class="fa fa-coffee mr-3 handCursor"></span> Tienda de Golosinas</a>
+                </li>
+                <li class="handCursor" style="display:none" id="activeBuyTicket">
+                    <a style="text-decoration:none"><span class="fa fa-ticket mr-3 handCursor"></span> Comprar Ticket</a>
+                </li>
+                <li class="handCursor" style="display:none" id="activeBuyCandy">
+                    <a style="text-decoration:none"><span class="fa fa-candy-cane mr-3 handCursor"></span> Comprar Golosinas</a>
+                </li>
+                <li>
+                    @Html.ActionLink(" Cerrar Sesión", "UnSession", "Home", new { @class = "fa fa-sign-out mr-0", @style = "font-size:large;text-decoration:none;" })
+                </li>
+            </ul>
+
+        </nav>
+
+        <div id="content" class="p-4 p-md-5 pt-5" style="margin-top: 10px; margin-left:30px;">
+            <div id="MovieDetails" style="display:block">
+                @{ Html.RenderAction("DetailsClient", "Movie"); }
+            </div>
+            <div id="CandyDetails" style="display:none">
+                @{ Html.RenderAction("DetailsClient", "Candy"); }
+            </div>
+            <div id="BuyMovieTicketDetail" style="display:none">
+                @{ Html.RenderAction("BuyMovieTicket", "Movie"); }
+            </div>
+            <div id="BuyCandyDetail" style="display:none">
+                @{ Html.RenderAction("BuyCandy", "Candy"); }
+            </div>
+        </div>
+    </div>
+</body>
+
+@section Scripts{
+    <script src="~/Scripts/popper.js"></script>
+    <script src="~/Scripts/main.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/ClientDashboard.js"></script>
+}
+}

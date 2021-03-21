@@ -24,6 +24,21 @@ namespace KodiMax.Controllers
                 throw;
             }
         }
+        public ActionResult DetailsClient()
+        {
+            try
+            {
+                using (var db = new KodiMaxEntities())
+                {
+                    return View(db.Movies.ToList());
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public ActionResult Create()
         {
             return View();
@@ -88,6 +103,10 @@ namespace KodiMax.Controllers
             {
                 return PartialView(db.Movies.ToList());
             }
+        }
+        public ActionResult BuyMovieTicket()
+        {
+            return View();
         }
     }
 }

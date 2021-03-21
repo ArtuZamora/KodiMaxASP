@@ -1,0 +1,24 @@
+﻿@model IEnumerable<KodiMax.Models.Movie>
+
+<table class="table" style="height:500px;">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="background-image: url('@item.Image'); width:200px; background-size: cover;">
+            </td>
+            <td style="padding-top:30px; padding-left:50px;">
+                <h1 class="movie-title">
+                    @item.Name
+                </h1><br /><br />
+                <p class="movie-detail">
+                    <b>Duración:</b> @Html.DisplayFor(modelItem => item.Duration)<br /><br />
+                    <b>Categoria:</b> @Html.DisplayFor(modelItem => item.Type)
+                </p><br />
+                <button id="@item.ID" type="button" class="btn btn-success movie" style="font-size:large">
+                    Comprar Tickets
+                </button>
+            </td>
+        </tr>
+    }
+
+</table>

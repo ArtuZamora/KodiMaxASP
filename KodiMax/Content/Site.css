@@ -1,4 +1,13 @@
-﻿body {
+﻿@font-face {
+    font-family: 'laconica';
+    src: url('~/fonts/laconica-font/LaconicaRegular-Djv1.ttf');
+}
+
+.classname {
+    font-family: 'Dense';
+}
+
+body {
     background-color: beige;
 }
 
@@ -55,5 +64,19 @@ textarea {
     margin-right: 70px;
     width: 150px;
     height: 50px;
+    font-size: large;
+}
+
+.handCursor {
+    cursor: pointer;
+}
+
+.movie-title {
+    font-family: laconica;
+    font-size: xx-large;
+}
+
+.movie-detail {
+    font-family: 'Adobe Devanagari';
     font-size: large;
 }

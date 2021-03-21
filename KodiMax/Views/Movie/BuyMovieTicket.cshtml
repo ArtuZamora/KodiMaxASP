@@ -1,0 +1,33 @@
+﻿<div style="padding:30px;" class="movie-detail">
+    <h1>Usted está comprando:</h1><br />
+    <table>
+        <tr>
+            <td id="SelectedMoviePicture" style="width:200px; background-size: cover;">
+            </td>
+            <td style="padding-top:30px; padding-left:50px;">
+                <h1 class="movie-title" id="SelectedMovieTitle">
+                </h1><br /><br />
+                <div class="movie-detail">
+                    <b>Duracion:</b><p id="SelectedMovieDuration"></p><br />
+                    <b>Categoria:</b><p id="SelectedMovieType"></p>
+                </div>
+            </td>
+        </tr>
+    </table><br /><br />
+    Sala de exhibicion:
+    <select class="input100 .MovieType" id ="mType" name="MovieType" type="select">
+        <option value="Estandar">Estandar</option>
+        <option value="Premium">Premium</option>
+        <option value="VIP">VIP</option>
+    </select><br /><br />
+    <b>Ingrese cantidad de tickets:</b>
+    <input id="numTickets" class="input100" type="number" min="1" max="100"><br />
+    <p id="validateSeats" style="display:none">Cantidad de asientos insuficientes</p>
+    <p id="movietotPrice"></p>
+    Dinero a ingresar (USD):
+    <input id="moviePriceEnter" class="input100" type="number" min="0"><br />
+    <p id="NotMoneyMovie">No hay dinero suficiente</p>
+    <button id="btnBuyMovie" class="btn btn-info" style="font-size:x-large;">
+        Comprar
+    </button>
+</div>

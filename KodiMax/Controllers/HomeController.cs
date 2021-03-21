@@ -88,6 +88,10 @@ namespace KodiMax.Controllers
             }
             else return RedirectToAction("Login");
         }
+        public ActionResult LoginGlobal()
+        {
+            return View();
+        }
         public void ReSession()
         {
             Session["ID"] = UserSession.user.ID.ToString();

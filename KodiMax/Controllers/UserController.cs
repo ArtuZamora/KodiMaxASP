@@ -49,6 +49,41 @@ namespace KodiMax.Controllers
                 return RedirectToAction("Login", "Home");
             }
         }
+
+        public ActionResult CreateGlobal()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateGlobal(UserCE user)
+        {
+            try
+            {
+                using (KodiMaxEntities db = new KodiMaxEntities())
+                {
+                    if (!(user.Type == "employee" && user.CompanyID == "A1B3C4")) user.Type = "client";
+                    User nU = new User() ;
+                    nU.Names = user.Names;
+                    nU.LastNames = user.LastNames;
+                    nU.Email = user.Email;
+                    nU.Birthdate = user.Birthdate;
+                    nU.Cellphone = user.Cellphone;
+                    nU.Genre = user.Genre;
+                    nU.Type = user.Type;
+                    nU.Username = user.Username;
+                    nU.Password = user.Password;
+                    db.Users.Add(nU);
+                    db.SaveChanges();
+                    return RedirectToAction("Login", "Home");
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Error al registrarse - " + ex);
+                return RedirectToAction("Login", "Home");
+            }
+        }
         public ActionResult Delete(int id)
         {
             using (var db = new KodiMaxEntities())
